@@ -4,3 +4,5 @@ const indexController = require("../controllers/indexController");
 
 router.get("/", indexController.index);
 router.get("/new", indexController.createMsg);
+
+module.exports = router;
