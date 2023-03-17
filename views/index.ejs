@@ -8,7 +8,12 @@
 
 <body>
 	<div class="container pt-5">
-		<h1 class="mb-4">Messages</h1>
+		<div class="d-flex align-items-center">
+			<h1 class="mb-4">Messages</h1>
+			<div class="ms-5 d-flex gap-2">
+				<a href="/new" class="btn btn-primary">New message</a>
+			</div>
+		</div>
 		<div class="mb-3">
 			<% messages.forEach(message => { %>
 			<div class="message border p-3 border-bottom rounded d-flex align-items-center gap-5 mb-3">
@@ -22,7 +27,6 @@
 			</div>
 			<% }) %>
 		</div>
-		<a href="/new">New message</a>
 
 	</div>
 </body>
