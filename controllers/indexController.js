@@ -1,20 +1,22 @@
 const messages = require("../models/messages");
 
 const index = (req, res, next) => {
-	const messagesFormatted = messages.map((message) => {
-		return {
-			...message,
-			added: message.added.toLocaleString("en-US", {
-				weekday: "short",
-				month: "short",
-				day: "numeric",
-				year: "numeric",
-				hour: "numeric",
-				minute: "numeric",
-				timezone: "PST",
-			}),
-		};
-	});
+	const messagesFormatted = messages
+		.sort((a, b) => b.added - a.added)
+		.map((message) => {
+			return {
+				...message,
+				added: message.added.toLocaleString("en-US", {
+					weekday: "short",
+					month: "short",
+					day: "numeric",
+					year: "numeric",
+					hour: "numeric",
+					minute: "numeric",
+					timezone: "PST",
+				}),
+			};
+		});
 	res.render("index", { messages: messagesFormatted });
 };
 
