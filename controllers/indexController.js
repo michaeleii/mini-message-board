@@ -13,7 +13,7 @@ const index = (req, res, next) => {
 					year: "numeric",
 					hour: "numeric",
 					minute: "numeric",
-					timezone: "PST",
+					timeZone: "PST",
 				}),
 			};
 		});
