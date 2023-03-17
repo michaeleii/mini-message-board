@@ -6,6 +6,10 @@ const indexRouter = require("./routes/index");
 const app = express();
 const port = process.env.PORT | 3000;
 
+// Set up mongoose connection
+const connectDB = require("./databaseConnection");
+connectDB().catch((err) => console.log(err));
+
 app.use(express.static("public"));
 
 // view engine setup

@@ -9,8 +9,8 @@ mongoose.set("strictQuery", false);
 const mongoDB = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@cluster0.knxcea1.mongodb.net/local_library?retryWrites=true&w=majority`;
 
 // Wait for database to connect, logging an error if there is a problem
-const connectToMongoDB = async () => {
+const connectDB = async () => {
 	await mongoose.connect(mongoDB);
 };
 
-module.exports = connectToMongoDB;
+module.exports = connectDB;
