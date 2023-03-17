@@ -3,6 +3,10 @@ const router = express.Router();
 const indexController = require("../controllers/indexController");
 
 router.get("/", indexController.index);
-router.get("/new", indexController.createMsg);
+
+router
+	.route("/new")
+	.get(indexController.displayNewMsgForm)
+	.post(indexController.addNewMsg);
 
 module.exports = router;

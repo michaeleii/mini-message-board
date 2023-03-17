@@ -1,9 +1,31 @@
 const messages = require("../models/messages");
 
 const index = (req, res, next) => {
-	res.render("index", { title: "Mini Messageboard", messages });
+	const messagesFormatted = messages.map((message) => {
+		return {
+			...message,
+			added: message.added.toLocaleString("en-US", {
+				weekday: "short",
+				month: "short",
+				day: "numeric",
+				year: "numeric",
+				hour: "numeric",
+				minute: "numeric",
+				timezone: "PST",
+			}),
+		};
+	});
+	res.render("index", { messages: messagesFormatted });
 };
 
-const createMsg = (req, res, next) => {};
+const displayNewMsgForm = (req, res, next) => {
+	res.render("form");
+};
 
-module.exports = { index, createMsg };
+const addNewMsg = (req, res, next) => {
+	const { text, user } = req.body;
+	messages.push({ text, user, added: new Date(Date.now()) });
+	res.redirect("/");
+};
+
+module.exports = { index, displayNewMsgForm, addNewMsg };

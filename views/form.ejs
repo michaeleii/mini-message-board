@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark" class="h-100">
+
+<head>
+	<%- include('partials/head') %>
+	<title>Create new message</title>
+</head>
+
+<body class="h-100">
+	<div class="container d-flex flex-column justify-content-center align-items-center h-100">
+		<h1 class="mb-4">New message</h1>
+		<form class="d-flex flex-column w-50 gap-3" action="/new" method="POST">
+			<input type="text" class="form-control" name="user" placeholder="Name">
+			<input type="text" class="form-control" name="text" placeholder="Message">
+			<button class="btn btn-primary" type="submit">Send</button>
+		</form>
+	</div>
+</body>
+
+</html>
